@@ -1,0 +1,13 @@
+.container-fluid
+  = render 'layouts/wizard'
+  .row
+    .col-md-6.col-md-offset-1#images-list
+      .row
+        - for media_item in @client.user_recent_media
+          .col-xs-6.col-md-3
+            a.thumbnail.user-image href="#"
+              img src="#{media_item.images.thumbnail.url}"
+    .col-md-5#sidebar
+      .panel.panel-default
+        .panel-heading You've selected
+        .panel-body
