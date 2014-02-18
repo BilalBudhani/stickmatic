@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
+  has_many :packs
 
   def self.find_for_instagram_oauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
