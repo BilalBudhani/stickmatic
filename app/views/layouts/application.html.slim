@@ -10,22 +10,23 @@ html
     nav.navbar.navbar-default[role="navigation"]
       .container-fluid
         .navbar-header
-          button.navbar-toggle[type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"]
+          button.navbar-toggle[type="button" data-toggle="collapse" data-target="#navbar"]
             span.sr-only
               | Toggle navigation
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand[href="#"]
-            | Stickmatic
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          a.navbar-brand[href="/"] Stickmatic
+        #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a[href="#"]
-                | FAQ
+              a[href="/faq"] FAQ
           ul.nav.navbar-nav.navbar-right
-            li
-              a[href="#"]
-                | Login
+            - if current_user
+              li
+                a[href="#"] Hi #{current_user.name}
+            - else
+              li
+                a[href="#{user_omniauth_authorize_path(:instagram)}"] Login
     = yield
     = javascript_include_tag "application", "data-turbolinks-track" => true
