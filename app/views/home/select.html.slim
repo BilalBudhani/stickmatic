@@ -4,10 +4,16 @@
     .col-md-6.col-md-offset-1#images-list
       .row
         - for media_item in @client.user_recent_media
-          .col-xs-3.col-md-3
-            a.thumbnail.user-image href="#"
-              img src="#{media_item.images.thumbnail.url}"
+          .instagram-block
+            .col-xs-3.col-md-3
+              a.thumbnail.user-image href="#"
+                img src="#{media_item.images.thumbnail.url}" data={thumburl: "#{media_item.images.thumbnail.url}", instagramid: "#{media_item.id}"}
     .col-md-5#sidebar
-      .panel.panel-default
-        .panel-heading You've selected
-        .panel-body
+        .panel.panel-default
+          .panel-heading You've selected
+          .panel-body
+            = form_for Pack.new  do |f|
+                ul.pack-preview
+                  - 9.times do |f|
+                    li.empty
+
