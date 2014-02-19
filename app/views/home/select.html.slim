@@ -12,8 +12,9 @@
         .panel.panel-default
           .panel-heading You've selected
           .panel-body
-            = form_for Pack.new  do |f|
-                ul.pack-preview
-                  - 9.times do |f|
-                    li.empty
+            = form_for Pack.new, html: {class: "packs"}  do |f|
+              ul.pack-preview
+                - 9.times do |f|
+                  li.empty
+              = f.submit "Add Pack to Basket", class: "hidden btn btn-primary"        
 
