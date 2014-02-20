@@ -3,7 +3,9 @@ class PacksController < ApplicationController
     @pack = Pack.new(pack_params)
     @pack.user_id = current_user.id
     if @pack.save!
-      redirect_to carts_path
+      @cart.add(@pack, @pack.price)
+      flash[:success] = "Pack added to cart"
+      redirect_to select_path
     else
       redirect_to select_path
     end
@@ -13,7 +15,6 @@ class PacksController < ApplicationController
     instagram_client
     @pack = Pack.find(params[:id])
     (9 - @pack.pack_items.length).times {@pack.pack_items.build}
-    raise @pack.pack_items.inspect
   end
   
   def update

@@ -1,5 +1,31 @@
+
 ol, ul {
   list-style: none;
+}
+
+div.sidebar {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+div.right-basket-details {
+  float: left;
+  max-width: 340px;
+}
+
+div.left-basket-preview {
+  width: 48%;
+  margin: 0 10% 80px 10%;
+}
+
+
+ul.basket-pack-preview {
+  width: 50%;
+}
+ul.basket-pack-preview  {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  overflow: hidden;
 }
 
 .pack-preview {
@@ -8,6 +34,11 @@ ol, ul {
   z-index: 6;
   border-radius: .6em;
 }
+img.small {
+  width: 70px;
+  height: auto;
+}
+
 .pack-preview li.filled {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
