@@ -17,7 +17,8 @@ class Pack < ActiveRecord::Base
   has_many :pack_items , dependent: :destroy
   accepts_nested_attributes_for :pack_items
 
-  # can be added to cart
-  acts_as_cartable
-
+  def price
+    500
+  end
+  
 end
