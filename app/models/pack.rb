@@ -12,7 +12,12 @@ class Pack < ActiveRecord::Base
     JIGSAW = 1
   ]
 
+  
   belongs_to :user
-  has_many :pack_items
+  has_many :pack_items , dependent: :destroy
+  accepts_nested_attributes_for :pack_items
+
+  # can be added to cart
+  acts_as_cartable
 
 end

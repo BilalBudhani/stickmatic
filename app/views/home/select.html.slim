@@ -12,9 +12,9 @@
         .panel.panel-default
           .panel-heading You've selected
           .panel-body
-            = form_for Pack.new, html: {class: "packs"}  do |f|
-              ul.pack-preview
-                - 9.times do |f|
-                  li.empty
-              = f.submit "Add Pack to Basket", class: "hidden btn btn-primary"        
+            = render  "packs/form"
 
+#js_instagram-preview-field
+   .js_pack_field.hidden 
+    = text_field_tag "pack_item_attributes[][instagram_image_id]" , "" , class: "js_instagramid"
+    = text_field_tag "pack_item_attributes[][instagram_thumbnail_url]" ,"" , class: "js_instagram_thumbnail_url"

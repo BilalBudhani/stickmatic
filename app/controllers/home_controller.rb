@@ -5,5 +5,7 @@ class HomeController < ApplicationController
 
   def select
     @client = Instagram.client(access_token: current_user[:token])
+    @pack = Pack.new
+    (9 - @pack.pack_items.length).times {@pack.pack_items.build}
   end
 end

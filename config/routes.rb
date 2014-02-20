@@ -2,13 +2,12 @@ Stickmatic::Application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
-  resources :carts
   resources :packs
 
   # You can have the root of your site routed with "root"
    root 'home#index'
    get '/select', to: 'home#select', as: 'select'
+   get '/basket' , to: "carts#index" ,as: 'basket'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
