@@ -13,7 +13,7 @@
             li
               = link_to 'remove' , remove_carts_path(item_id: cart_item.item), class: 'btn btn-danger', method: :delete, data: {confirm: "Are you sure you want to delete this"} 
             li 
-              = link_to '+ Create More' , new_pack_path,  class: 'btn btn-warning'
+              = link_to '+ Create More' , select_path,  class: 'btn btn-warning'
         ul.basket-pack-preview
           li
             = link_to edit_pack_path(cart_item.item) do
