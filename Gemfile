@@ -16,6 +16,7 @@ gem "omniauth-instagram", "~> 1.0.1"
 gem "rails_config", "~> 0.3.3"
 gem "faraday", "~> 0.8.9"
 gem "foreman", "~> 0.63.0"
+gem "font-awesome-rails"
 
 group :development do
   gem "better_errors", "~> 1.0.1"
