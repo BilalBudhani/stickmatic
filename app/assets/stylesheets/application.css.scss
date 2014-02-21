@@ -13,6 +13,7 @@
  */
 @import "bootstrap";
 @import "bootstrap/theme";
+@import "font-awesome";
 
 .wizard a {padding: 12px 75px 10px 75px; margin-right:5px; background:#efefef; position:relative; display:inline-block; }
 .wizard a:before {width:0px; height:0px; border-top: 20px inset transparent; border-bottom: 20px inset transparent; border-left: 20px solid #fff; position: absolute; content: ""; top: 0; left: 0;}
@@ -31,4 +32,85 @@
 
 .breadcrums {
   margin-bottom: 15px;
+}
+
+
+ol, ul {
+  list-style: none;
+}
+
+div.sidebar {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+div.right-basket-details {
+  float: left;
+  max-width: 340px;
+}
+
+div.left-basket-preview {
+  width: 48%;
+  margin: 0 10% 80px 10%;
+}
+
+.panel-body {
+  padding: 4px;
+}
+
+ul {
+  basket-pack-preview {
+    width: 50%;
+  }
+  basket-pack-preview  {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    overflow: hidden;
+  }
+}
+
+img.small {
+  width: 70px;
+  height: auto;
+}
+
+
+ul.pack-preview  {
+    padding: 2.58398%;
+    position: relative;
+    z-index: 6;
+    border-radius: .6em;
+
+    li.empty {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    margin: 0 0 1.3624% 1.3624%;
+    width: 31.97094%;
+    padding-bottom: 31.54122%;
+    position: relative;
+    background-color: #333;
+    border: 1px solid #313131;
+    color: #fff;
+    text-align: center;
+    display: list-item;
+  }
+
+  li.filled {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    margin: 2px;
+    position: relative;
+    background-color: #333;
+    border: 1px solid #313131;
+    display: list-item;
+    text-align: center;
+    width: 31.97094%
+  }
+
 }

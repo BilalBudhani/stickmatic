@@ -4,7 +4,7 @@ Stickmatic::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :packs
-  resources :carts  do 
+  resources :carts  do
     collection do
       delete :remove
     end

@@ -16,11 +16,11 @@ class PacksController < ApplicationController
     @pack = Pack.find(params[:id])
     (9 - @pack.pack_items.length).times {@pack.pack_items.build}
   end
-  
+
   def update
   end
 
   def pack_params
-      params.require(:pack).permit(:pack_items_attributes=>[:instagram_id,:instagram_image_url])
+    params.require(:pack).permit(:pack_items_attributes=>[:instagram_id,:instagram_image_url])
   end
 end

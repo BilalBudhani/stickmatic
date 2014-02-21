@@ -4,17 +4,13 @@
     .col-md-6.col-md-offset-1#images-list
       .row
         - for media_item in @client.user_recent_media
-          .instagram-block
-            .col-xs-3.col-md-3
-              a.thumbnail.user-image href="#"
-                img src="#{media_item.images.thumbnail.url}" data={thumburl: "#{media_item.images.thumbnail.url}", instagramid: "#{media_item.id}"}
+          .col-xs-3.col-md-3
+            a.thumbnail.user-image href="#"
+              img src="#{media_item.images.thumbnail.url}" data={thumburl: "#{media_item.images.thumbnail.url}", instagramid: "#{media_item.id}"}
     .col-md-5#sidebar
-        .panel.panel-default
-          .panel-heading You've selected
-          .panel-body
-            = render  "packs/form"
+      = render  "packs/form"
 
 #js_instagram-preview-field
-   .js_pack_field.hidden 
+   .js_pack_field.hidden
     = text_field_tag "pack_item_attributes[][instagram_image_id]" , "" , class: "js_instagramid"
     = text_field_tag "pack_item_attributes[][instagram_thumbnail_url]" ,"" , class: "js_instagram_thumbnail_url"
