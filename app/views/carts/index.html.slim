@@ -3,7 +3,11 @@
   .left-basket-preview
       - @cart.cart_items.each do |cart_item|
         .pull-right
-          ul 
+          ul
+            li
+              = form_for cart_item, url: cart_path(@cart.id) , method: :put do |f|
+                = f.select :quantity , options_for_select((1..20).to_a, cart_item.quantity) , {}, class: 'js_basket_item_quantity'
+                = f.hidden_field :item_id , value: cart_item.item_id
             li
               = link_to 'edit' , edit_pack_path(cart_item.item), class: 'btn btn-success'
             li
