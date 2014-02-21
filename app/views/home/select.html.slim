@@ -9,8 +9,3 @@
               img src="#{media_item.images.thumbnail.url}" data={thumburl: "#{media_item.images.thumbnail.url}", instagramid: "#{media_item.id}"}
     .col-md-5#sidebar
       = render  "packs/form"
-
-#js_instagram-preview-field
-   .js_pack_field.hidden
-    = text_field_tag "pack_item_attributes[][instagram_image_id]" , "" , class: "js_instagramid"
-    = text_field_tag "pack_item_attributes[][instagram_thumbnail_url]" ,"" , class: "js_instagram_thumbnail_url"

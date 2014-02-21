@@ -6,10 +6,10 @@ $ ->
     emptyListItem.removeClass('empty').addClass('filled');
 
 
-    # form_field = $("#js_instagram-preview-field .js_pack_field" ).clone();
-    # form_field.find('.js_instagramid').val(img.data('instagramid'))
-    # form_field.find('.js_instagram_thumbnail_url').val(img.data('thumburl'))
-    # $(form_field).appendTo(appendToList);
+    form_field = $("#js_instagram-preview-field .js_pack_field" ).clone();
+    form_field.find('.js_instagramid').val(img.data('instagramid'))
+    form_field.find('.js_instagram_thumbnail_url').val(img.data('thumburl'))
+    $(form_field).appendTo(emptyListItem);
 
     if $('#sidebar .panel-body .pack-preview li.empty').length == 0
       $('form.packs input[name="commit"]').removeClass('hidden')
