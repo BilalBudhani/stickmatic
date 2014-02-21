@@ -11,10 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140208033805) do
+ActiveRecord::Schema.define(version: 20140220205859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cart_items", force: true do |t|
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.integer  "quantity"
+    t.integer  "item_id"
+    t.string   "item_type"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", force: true do |t|
+  end
+
+  create_table "pack_items", force: true do |t|
+    t.integer  "pack_id"
+    t.string   "instagram_image_id"
+    t.string   "instagram_image_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "packs", force: true do |t|
+    t.integer  "user_id"
+    t.string   "pack_type"
+    t.integer  "quantity"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
