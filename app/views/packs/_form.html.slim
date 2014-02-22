@@ -1,16 +1,23 @@
 = form_for @pack , html: {class: "packs"}  do |f|
-  ul.pack-preview
-    = f.fields_for :pack_items do |pack_item|
-      - if pack_item.object.new_record?
-          li.empty
-      - else
-          li.filled 
-            .js_pack_field.hidden 
-              = pack_item.text_field :instagram_image_id , class: "js_instagramid"
-              = pack_item.text_field :instagram_image_url, class: "js_instagram_thumbnail_url"        
-            img src="#{pack_item.object.instagram_image_url}" data={thumburl: "#{pack_item.object.instagram_image_url}", instagramid: "#{pack_item.object.instagram_image_id}"}
-
-  = f.submit "#{@pack.new_record? ? 'Add' : 'Update'}  Pack to Basket", class: "hidden btn btn-primary"        
+  .panel.panel-default
+    .panel-heading Your sheet
+    .panel-body
+      ul.pack-preview
+        = f.fields_for :pack_items do |pack_item|
+          - if pack_item.object.new_record?
+              li.empty
+                = fa_icon "picture-o lg"
+          - else
+              li.filled
+                .js_pack_field.hidden
+                  = pack_item.text_field :instagram_image_id , class: "js_instagramid"
+                  = pack_item.text_field :instagram_image_url, class: "js_instagram_thumbnail_url"
+                img src="#{pack_item.object.instagram_image_url}" data={thumburl: "#{pack_item.object.instagram_image_url}", instagramid: "#{pack_item.object.instagram_image_id}"}
+    .panel-footer
+      = button_tag type: 'submit', class: "btn btn-primary btn-lg center"
+        = fa_icon 'plus'
+        = @pack.new_record? ? ' Add ' : ' Update '
+        | Pack to Basket
 
 = render "packs/pack_item_attribute"
 
