@@ -11,8 +11,6 @@ $ ->
     form_field.find('.js_instagram_thumbnail_url').val(img.data('thumburl'))
     $(form_field).appendTo(emptyListItem);
 
-    if $('#sidebar .panel-body .pack-preview li.empty').length == 0
-      $('form.packs input[name="commit"]').removeClass('hidden')
     return false;
 
 

@@ -14,7 +14,6 @@ class CartsController < ApplicationController
     end
   end
 
-
   def remove
     if @item = Pack.find_by_id(params[:item_id])
       @cart.remove(@item)
