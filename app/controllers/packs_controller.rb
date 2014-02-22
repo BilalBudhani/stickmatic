@@ -13,10 +13,8 @@ class PacksController < ApplicationController
     if @pack.save!
       @cart.add(@pack, @pack.price)
       flash[:success] = "Pack added to cart"
-      redirect_to new_pack_path
-    else
-      redirect_to new_pack_path
     end
+    redirect_to new_pack_path
   end
 
   def edit
@@ -26,14 +24,10 @@ class PacksController < ApplicationController
 
   def update
     @pack = Pack.find(params[:id])
-    # @pack.user_id = current_user.id
     if @pack.update_attributes!(pack_params)
-      # @cart.add(@pack, @pack.price)
-      flash[:success] = "Pack added to cart"
-      redirect_to select_path
-    else
-      redirect_to select_path
+      flash[:success] = "Pack updated"
     end
+    redirect_to edit_pack_path
   end
 
   private

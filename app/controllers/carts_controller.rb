@@ -18,11 +18,7 @@ class CartsController < ApplicationController
     if @item = Pack.find_by_id(params[:item_id])
       @cart.remove(@item)
     end
-    respond_to do |format|
-      format.html {redirect_to basket_path}
-      format.js
-    end
-
+    redirect_to basket_path
   end
 
   private

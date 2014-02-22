@@ -26,4 +26,6 @@
                 = link_to 'Create More' , new_pack_path,  class: 'btn btn-warning btn-block'
 
     .col-md-3.col-md-offset-1
-      h2 Price: #{@cart.total}
+      h2 Sheets #{fa_icon "inr"}#{@cart.total}
+      h2 Shipping Free
+      button.btn.btn-primary Proceed
