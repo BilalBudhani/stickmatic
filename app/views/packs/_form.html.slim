@@ -12,7 +12,7 @@
                 .js_pack_field.hidden
                   = pack_item.text_field :instagram_image_id , class: "js_instagramid"
                   = pack_item.text_field :instagram_image_url, class: "js_instagram_thumbnail_url"
-                img src="#{pack_item.object.instagram_image_url}" data={thumburl: "#{pack_item.object.instagram_image_url}", instagramid: "#{pack_item.object.instagram_image_idk}"}
+                img src="#{pack_item.object.instagram_image_url}" data={thumburl: "#{pack_item.object.instagram_image_url}", instagramid: "#{pack_item.object.instagram_image_id}"}
     .panel-footer
       = button_tag type: 'submit', class: "btn btn-primary btn-lg center"
         = fa_icon 'plus'

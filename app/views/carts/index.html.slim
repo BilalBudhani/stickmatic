@@ -1,27 +1,29 @@
 .container-fluid
   = render 'layouts/wizard'
-  .left-basket-preview
+  .row
+    .col-md-7.col-md-offset-1
       - @cart.cart_items.each do |cart_item|
-        .pull-right
-          ul
-            li
-              = form_for cart_item, url: cart_path(@cart.id) , method: :put do |f|
-                = f.select :quantity , options_for_select((1..20).to_a, cart_item.quantity) , {}, class: 'js_basket_item_quantity'
-                = f.hidden_field :item_id , value: cart_item.item_id
-            li
-              = link_to 'edit' , edit_pack_path(cart_item.item), class: 'btn btn-success'
-            li
-              = link_to 'remove' , remove_carts_path(item_id: cart_item.item), class: 'btn btn-danger', method: :delete, data: {confirm: "Are you sure you want to delete this"}
-            li
-              = link_to '+ Create More' , new_pack_path,  class: 'btn btn-warning'
-        ul.basket-pack-preview
-          li
-            = link_to edit_pack_path(cart_item.item) do
-              ul.pack-preview
-                - cart_item.item.pack_items.each do |pack_item|
-                    li.filled
-                      img.small src="#{pack_item.instagram_image_url}" data={thumburl: "#{pack_item.instagram_image_url}", instagramid: "#{pack_item.instagram_image_id}"}
+        .row
+          .col-md-8
+            ul.basket-pack-preview
+              li
+                = link_to edit_pack_path(cart_item.item) do
+                  ul.pack-preview
+                    - cart_item.item.pack_items.each do |pack_item|
+                        li.filled
+                          img.small src="#{pack_item.instagram_image_url}" data={thumburl: "#{pack_item.instagram_image_url}", instagramid: "#{pack_item.instagram_image_id}"}
+          .col-md-4
+            ul.action-list
+              li
+                = form_for cart_item, url: cart_path(@cart.id) , method: :put do |f|
+                  = f.select :quantity , options_for_select((1..20).to_a, cart_item.quantity) , {}, class: 'js_basket_item_quantity'
+                  = f.hidden_field :item_id , value: cart_item.item_id
+              li
+                = link_to 'Edit' , edit_pack_path(cart_item.item), class: 'btn btn-success btn-block'
+              li
+                = link_to 'Delete' , remove_carts_path(item_id: cart_item.item), class: 'btn btn-danger btn-block', method: :delete, data: {confirm: "Are you sure you want to delete this"}
+              li
+                = link_to 'Create More' , new_pack_path,  class: 'btn btn-warning btn-block'
 
-
-  .right-basket-details.sidebar
-    h2 Price: "#{@cart.total}"
+    .col-md-3.col-md-offset-1
+      h2 Price: #{@cart.total}
