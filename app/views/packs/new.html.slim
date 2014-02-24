@@ -1,11 +1,10 @@
-.container-fluid
+.container
   = render 'layouts/wizard'
   .row
-    .col-md-6.col-md-offset-1#images-list
-      .row
+    .col-md-6
+      ul#images-list
         - for media_item in @client.user_recent_media
-          .col-xs-3.col-md-3
-            a.thumbnail.user-image href="#"
-              img src="#{media_item.images.thumbnail.url}" data={thumburl: "#{media_item.images.thumbnail.url}", instagramid: "#{media_item.id}"}
-    .col-md-5#sidebar
+          li
+            img src="#{media_item.images.thumbnail.url}" data={thumburl: "#{media_item.images.thumbnail.url}", instagramid: "#{media_item.id}"}
+    .col-md-6#sidebar
       = render  "packs/form"

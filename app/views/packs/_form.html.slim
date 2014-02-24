@@ -5,7 +5,7 @@
       ul.pack-preview
         = f.fields_for :pack_items do |pack_item|
           - if pack_item.object.new_record?
-              li.empty
+              li
                 = fa_icon "picture-o lg"
           - else
               li.filled
