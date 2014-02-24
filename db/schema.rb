@@ -30,17 +30,17 @@ ActiveRecord::Schema.define(version: 20140220205859) do
   create_table "carts", force: true do |t|
   end
 
-  create_table "pack_items", force: true do |t|
-    t.integer  "pack_id"
+  create_table "product_items", force: true do |t|
+    t.integer  "product_id"
     t.string   "instagram_image_id"
     t.string   "instagram_image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "packs", force: true do |t|
+  create_table "products", force: true do |t|
     t.integer  "user_id"
-    t.string   "pack_type"
+    t.string   "product_type"
     t.integer  "quantity"
     t.integer  "status"
     t.datetime "created_at"

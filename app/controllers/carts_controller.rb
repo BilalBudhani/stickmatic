@@ -5,7 +5,7 @@ class CartsController < ApplicationController
   def update
     if params[:cart_item].present? && params[:cart_item][:quantity].present? && params[:cart_item][:item_id].present?
       quantity = params[:cart_item][:quantity].to_i
-      update_cart(@item,quantity) if  quantity > 0 and @item = Pack.find_by_id(params[:cart_item][:item_id])
+      update_cart(@item,quantity) if  quantity > 0 and @item = Product.find_by_id(params[:cart_item][:item_id])
     end
 
     respond_to do |format|
@@ -15,7 +15,7 @@ class CartsController < ApplicationController
   end
 
   def remove
-    if @item = Pack.find_by_id(params[:item_id])
+    if @item = Product.find_by_id(params[:item_id])
       @cart.remove(@item)
     end
     redirect_to basket_path
