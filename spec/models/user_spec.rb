@@ -17,6 +17,18 @@ describe User do
     expect(FactoryGirl.build(:user, token: nil)).not_to be_valid
   end
 
-  it "has many carts"
+  it {should have_many(:carts)}
+
+  it "should save the record properly" do
+    user = FactoryGirl.build(:user)
+    user.save!
+    expect(User.first).to eq(user)
+  end
+
+   it "should have timestamp in proper format" do
+    user = FactoryGirl.create(:user)
+    expect(user[:created_at].to_date).to be_a(Date)
+    expect(user[:updated_at].to_date).to be_a(Date)
+  end
 
 end

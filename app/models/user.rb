@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   validates  :provider,:username,:uid,:token , presence: true
 
-  # has_many :carts
+  has_many :carts
 
   def self.find_for_instagram_oauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
