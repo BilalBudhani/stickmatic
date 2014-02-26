@@ -8,7 +8,7 @@ class Product < ActiveRecord::Base
 
   # type which shows multiple images and single image
   PRODUCT_TYPES = [
-    COLLAGE = 0,
+    CLASSIC = 0,
     JIGSAW = 1
   ]
 
@@ -18,8 +18,14 @@ class Product < ActiveRecord::Base
   has_many :product_items , dependent: :destroy
   accepts_nested_attributes_for :product_items
 
+  before_save :save_product_type
+
   def price
     700
+  end
+
+  def save_product_type
+    self.product_type ||=  CLASSIC
   end
 
 end

@@ -11,4 +11,12 @@ describe Product do
 
   it {should have_many(:product_items)}
 
+  describe "classic type" do
+    let(:product) {create(:product_with_product_items)}
+
+    it "has 9 product_items" do
+      expect(product.product_items.count).to eq(9)
+    end
+  end
+
 end
