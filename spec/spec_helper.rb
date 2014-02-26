@@ -45,15 +45,19 @@ RSpec.configure do |config|
     config.include FactoryGirl::Syntax::Methods
   end
 
-  # config.before(:suite) do
-  #   DatabaseCleaner[:active_record].strategy = :truncation
-  # end
+  ## Devise Helpers
+  config.include Devise::TestHelpers, type: :controller
 
-  # config.before(:each) do
-  #   DatabaseCleaner[:active_record].start
-  # end
+   ## DatabaseCleaner
+   config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
 
-  # config.after(:each) do
-  #   DatabaseCleaner[:active_record].clean
-  # end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end
