@@ -1,7 +1,7 @@
 class CreateCart < ActiveRecord::Migration
   def change
     create_table :carts do |t|
-      t.integer :status
+      t.integer :status ,default: Cart::PENDING, null: false
       t.references :user
       t.timestamp
     end

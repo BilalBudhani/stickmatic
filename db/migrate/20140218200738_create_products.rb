@@ -2,9 +2,9 @@ class CreateProducts < ActiveRecord::Migration
   def change
     create_table :products do |t|
       t.references :user
-      t.integer :product_type
-      t.integer :quantity
-      t.integer :status
+      t.integer :product_type, null: false
+      t.integer :quantity, default: 1, null: false
+      t.integer :status, null: false
       t.timestamps
     end
 
