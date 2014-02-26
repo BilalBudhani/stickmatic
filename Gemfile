@@ -38,7 +38,7 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
-  # gem 'shoulda-matchers'
+  gem 'shoulda-matchers'
   gem 'database_cleaner'
 end
 
