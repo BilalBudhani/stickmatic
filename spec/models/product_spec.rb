@@ -11,6 +11,8 @@ describe Product do
 
   it {should have_many(:product_items)}
 
+  it { expect(build(:product).price).to eq(700)}
+
   describe "classic type" do
     let(:product) {create(:product_with_product_items)}
 
