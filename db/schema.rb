@@ -27,8 +27,15 @@ ActiveRecord::Schema.define(version: 20140220205859) do
     t.datetime "updated_at"
   end
 
+  add_index "cart_items", ["owner_type", "owner_id"], name: "index_cart_items_on_owner_type_and_owner_id", using: :btree
+
   create_table "carts", force: true do |t|
+    t.integer "status"
+    t.integer "user_id"
   end
+
+  add_index "carts", ["user_id", "status"], name: "index_carts_on_user_id_and_status", using: :btree
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id", using: :btree
 
   create_table "product_items", force: true do |t|
     t.integer  "product_id"
@@ -38,14 +45,20 @@ ActiveRecord::Schema.define(version: 20140220205859) do
     t.datetime "updated_at"
   end
 
+  add_index "product_items", ["product_id"], name: "index_product_items_on_product_id", using: :btree
+
   create_table "products", force: true do |t|
     t.integer  "user_id"
-    t.string   "product_type"
+    t.integer  "product_type"
     t.integer  "quantity"
     t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "products", ["user_id", "product_type", "status"], name: "index_products_on_user_id_and_product_type_and_status", using: :btree
+  add_index "products", ["user_id", "product_type"], name: "index_products_on_user_id_and_product_type", using: :btree
+  add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -70,5 +83,6 @@ ActiveRecord::Schema.define(version: 20140220205859) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
 
 end

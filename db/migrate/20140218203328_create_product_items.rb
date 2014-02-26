@@ -6,5 +6,8 @@ class CreateProductItems < ActiveRecord::Migration
       t.string :instagram_image_url , length: 500
       t.timestamps
     end
+
+    add_index :product_items ,:product_id
+
   end
 end

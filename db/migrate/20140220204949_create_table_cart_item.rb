@@ -4,5 +4,7 @@ class CreateTableCartItem < ActiveRecord::Migration
       t.shopping_cart_item_fields
       t.timestamps
     end
+
+    add_index :cart_items , [:owner_type ,:owner_id]
   end
 end
