@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :cart do |f|
-    status  1
+    status  Cart::PENDING
     user
   end
 end
