@@ -12,6 +12,8 @@ class Product < ActiveRecord::Base
     JIGSAW = 1
   ]
 
+  validates :product_type , presence: true
+
   belongs_to :user
   has_many :product_items , dependent: :destroy
   accepts_nested_attributes_for :product_items
