@@ -1,5 +1,5 @@
 class Cart < ActiveRecord::Base
-  acts_as_shopping_cart_using :cart_item
+  acts_as_shopping_cart_using :line_item
   STATUS = [
     PENDING= 0,
     PROCESSED= 1

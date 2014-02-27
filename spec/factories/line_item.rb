@@ -1,7 +1,7 @@
 FactoryGirl.define do
-  factory :cart_item do |f|
+  factory :line_item do |f|
     cart
-    item { build(:product_with_items) }
+    item { product_with_items }
     quantity 1
     price {|ct| item.price * ct.quantity}
   end
