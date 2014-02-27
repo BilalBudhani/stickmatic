@@ -8,6 +8,13 @@ class User < ActiveRecord::Base
 
   has_many :carts
 
+
+  has_many :invitations, :class_name => User.to_s, foreign_key: :invited_by_id
+  has_one :invited_by, :class_name => User.to_s, foreign_key: :id
+  
+
+  before_create :set_initial_data
+
   def self.find_for_instagram_oauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider
@@ -19,6 +26,10 @@ class User < ActiveRecord::Base
       user.image = auth.info.image # assuming the user model has an image
       user.token = auth.credentials.token
     end
+  end
+
+  def set_initial_data
+    self.invite_code ||= SecureRandom.hex(8)
   end
 
 end
