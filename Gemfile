@@ -29,6 +29,17 @@ end
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-nav'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
 end
 
 gem 'puma'
