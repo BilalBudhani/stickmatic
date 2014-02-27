@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   end
 
   def initialize_cart
-    @cart = @cart.presence || Cart.find_by_id(session[:cart_id].to_i).presence || Cart.create
+    return unless user_signed_in?
+    @cart = @cart.presence || Cart.find_by_id(session[:cart_id].to_i).presence || Cart.create(user_id: current_user.id)
     session[:cart_id] = @cart.id
   end
 end

@@ -11,7 +11,7 @@ class Product < ActiveRecord::Base
   has_many :product_items , dependent: :destroy
   accepts_nested_attributes_for :product_items
 
-  before_save :save_product_type
+  before_validation :save_product_type
 
   def price
     700
