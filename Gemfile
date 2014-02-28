@@ -29,6 +29,20 @@ end
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-nav'
+  gem 'factory_girl_rails'
+  gem 'spring-commands-rspec'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'rb-fsevent' if `uname` =~ /Darwin/
+end
+
+group :test do
+  gem "faker", "~> 1.2.0"
+  gem "capybara", "~> 2.2.1"
+  gem "shoulda-matchers", "~> 2.5.0"
+  gem "database_cleaner", "~> 1.2.0"
+  gem "selenium-webdriver", "~> 2.40.0"
+  gem 'launchy'
 end
 
 gem 'puma'
