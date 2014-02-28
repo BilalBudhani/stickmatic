@@ -20,4 +20,6 @@ describe Address do
     address = Address.new build(:address, street: nil).attributes
     expect(address).to be_invalid
   end
+
+  it {should have_one(:order)}
 end
