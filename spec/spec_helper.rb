@@ -49,6 +49,8 @@ RSpec.configure do |config|
 
   ## Devise Helpers
   config.include Devise::TestHelpers, type: :controller
+  config.extend ControllerMacros, type: :controller
+
 
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:instagram] = OmniAuth::AuthHash.new({

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-
+  before_filter :authenticate_user!
   before_filter :instagram_client, only: [:new, :edit]
 
   def new
