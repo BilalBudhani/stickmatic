@@ -6,6 +6,9 @@ class Cart < ActiveRecord::Base
   ]
 
   belongs_to :user
+  has_many :order_carts
+  has_many :orders , through: :order_carts
+
 
   validates  :user, :status , presence: true
 

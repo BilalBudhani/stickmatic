@@ -305,7 +305,6 @@ DEPENDENCIES
   puma
   rails (= 4.0.3)
   rails_config (~> 0.3.3)
-  rb-fsevent
   rspec-rails
   sass-rails (~> 4.0.0)
   selenium-webdriver (~> 2.40.0)

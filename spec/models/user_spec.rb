@@ -18,6 +18,7 @@ describe User do
   end
 
   it {should have_many(:carts)}
+  it {should have_many(:orders)}
   it {should have_many(:invitations)}
   it {should have_one(:invited_by)}
 
