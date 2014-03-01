@@ -26,6 +26,7 @@ group :development do
   gem "better_errors", "~> 1.0.1"
   gem "binding_of_caller", "~> 0.7.2"
   gem "meta_request", "~> 0.2.8"
+
 end
 
 group :development, :test do
@@ -39,6 +40,7 @@ group :development, :test do
 end
 
 group :test do
+  gem "webmock", "~> 1.17.3"
   gem "faker", "~> 1.2.0"
   gem "capybara", "~> 2.2.1"
   gem "shoulda-matchers", "~> 2.5.0"

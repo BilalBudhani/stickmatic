@@ -15,7 +15,7 @@
 @import "bootstrap/theme";
 @import "font-awesome";
 
-.wizard a {padding: 12px 5% 10px 5%; margin-right:5px; background:#efefef; position:relative; display:inline-block; }
+.wizard a {padding: 12px 1% 10px 1%; margin-right:5px; background:#efefef; position:relative; display:inline-block; }
 .wizard a:before {width:0px; height:0px; border-top: 20px inset transparent; border-bottom: 20px inset transparent; border-left: 20px solid #fff; position: absolute; content: ""; top: 0; left: 0;}
 .wizard a:after {width:0px; height:0px; border-top: 20px inset transparent; border-bottom: 20px inset transparent; border-left: 20px solid #efefef; position: absolute; content: ""; top: 0; right: -20px; z-index:2;}
 .wizard a:first-child:before {border:none;}
