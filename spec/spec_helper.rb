@@ -4,6 +4,8 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require "capybara/rspec"
+require 'webmock/rspec'
+WebMock.disable_net_connect!(allow_localhost: true)
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -48,8 +50,21 @@ RSpec.configure do |config|
   ## Devise Helpers
   config.include Devise::TestHelpers, type: :controller
 
-   ## DatabaseCleaner
-   config.before(:suite) do
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:instagram] = OmniAuth::AuthHash.new({
+    :provider => 'instagram',
+    :uid => '1233456789',
+    :info => {
+      :nickname => 'testUser',
+      :name => 'Test User',
+      :image => '//test',
+    },
+    :credentials => {
+      :token => 'securitycredentials'
+    }
+  })
+  ## DatabaseCleaner
+  config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end
 
