@@ -7,6 +7,6 @@ class AddColumnsToUsers < ActiveRecord::Migration
     add_column :users, :image, :string
     add_column :users, :token, :string
 
-    add_index :users , :uid
+    add_index :users, :uid
   end
 end
