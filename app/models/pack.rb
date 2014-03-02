@@ -3,4 +3,6 @@ class Pack < ActiveRecord::Base
   has_many :pack_items
   has_one :ordered_pack
   has_one :order, through: :ordered_pack
+
+  validates_presence_of :user_id
 end

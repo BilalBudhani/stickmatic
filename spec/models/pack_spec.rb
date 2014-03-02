@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Pack do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:user) }
+  it { should have_many(:pack_items) }
+  it { should have_one(:ordered_pack) }
+  it { should have_one(:order) }
+  it { should validate_presence_of(:user_id) }
 end

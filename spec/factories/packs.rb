@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :pack do
-    user nil
-    name "MyString"
+    user { FactoryGirl.create(:user) }
+    name "Pack Name"
     price 10
   end
 end

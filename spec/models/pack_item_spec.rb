@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe PackItem do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:pack) }
+  it { should validate_presence_of(:pack_id) }
+  it { should validate_presence_of(:image) }
+  it { should validate_presence_of(:thumb) }
+  it { should validate_presence_of(:uid) }
 end
