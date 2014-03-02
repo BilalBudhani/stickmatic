@@ -27,6 +27,7 @@ describe PacksController do
       lambda {
         expect { post :create, params }.to change(Pack, :count).by(1)
       }.should change(PackItem, :count).by(2)
+      expect(response).to redirect_to basket_path
     end
   end
 end
