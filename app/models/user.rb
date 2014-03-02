@@ -5,12 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   validates  :provider,:username,:uid,:token , presence: true
-
-  has_many :carts
-
   has_many :invitations, :class_name => User.to_s, foreign_key: :invited_by_id
   has_one :invited_by, :class_name => User.to_s, foreign_key: :id
 
+  has_many :packs
 
   before_create :set_initial_data
 
