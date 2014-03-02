@@ -7,12 +7,13 @@ class PacksController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    if @product.save!
-      @cart.add(@product, @product.price)
+    @pack = current_user.packs.new(pack_params)
+    if @pack.save!
       flash[:success] = "Product added to cart"
+      redirect_to basket_path
+    else
+      redirect_to new_pack_path
     end
-    redirect_to new_product_path
   end
 
   def edit
@@ -29,8 +30,8 @@ class PacksController < ApplicationController
   end
 
   private
-  def product_params
-    params.require(:product).permit(:product_items_attributes=>[:instagram_image_id,:instagram_image_url,:id,:product_id])
+  def pack_params
+    params.require(:pack).permit(:pack_items_attributes=>[:pack_id, :uid,:image,:thumb])
   end
 
   def pack_items_length

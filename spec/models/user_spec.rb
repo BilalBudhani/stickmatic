@@ -63,7 +63,7 @@ describe User do
       before(:each) { User.find_for_instagram_oauth(auth_params) }
 
       it "should not create new user" do
-        expect { User.find_for_instagram_oauth(auth_params) }.not_to change(User, :count).by(1)
+        expect { User.find_for_instagram_oauth(auth_params) }.to change(User, :count).by(0)
       end
     end
   end
