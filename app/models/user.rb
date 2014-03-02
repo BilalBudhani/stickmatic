@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_one :invited_by, :class_name => User.to_s, foreign_key: :id
 
   has_many :packs
-
+  has_many :orders
   before_create :set_initial_data
 
   def self.find_for_instagram_oauth(auth)
