@@ -1,10 +1,9 @@
-class ProductsController < ApplicationController
-  before_filter :authenticate_user!
+class PacksController < ApplicationController
   before_filter :instagram_client, only: [:new, :edit]
 
   def new
-    @product = Product.new
-    (product_length - @product.product_items.length).times {@product.product_items.build}
+    @pack = Pack.new
+    (pack_items_length - @pack.pack_items.length).times {@pack.pack_items.build}
   end
 
   def create
@@ -34,7 +33,7 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:product_items_attributes=>[:instagram_image_id,:instagram_image_url,:id,:product_id])
   end
 
-  def product_length
+  def pack_items_length
     9
   end
 end
