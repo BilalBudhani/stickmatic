@@ -17,8 +17,12 @@ class PacksController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
-    (product_length - @product.product_items.length).times { @product.product_items.build }
+    begin
+      @pack = current_user.packs.find(params[:id])
+      (pack_items_length - @pack.pack_items.length).times { @pack.pack_items.build }
+    rescue ActiveRecord::RecordNotFound
+      redirect_to new_pack_path
+    end
   end
 
   def update

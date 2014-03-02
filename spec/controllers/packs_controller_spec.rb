@@ -29,5 +29,20 @@ describe PacksController do
       }.should change(PackItem, :count).by(2)
       expect(response).to redirect_to basket_path
     end
+
+    describe "edit" do
+      let!(:other_pack) { FactoryGirl.create(:pack) } # Different user's pack
+      let!(:pack)  { FactoryGirl.create(:pack, user: subject.current_user) } # Current user's pack
+
+      it "should be able to view other's packs" do
+        get :edit, id: other_pack.id
+        expect(response).to redirect_to new_pack_path
+      end
+
+      it "should be able to view pack" do
+        get :edit, id: pack.id
+        expect(response).to be_success
+      end
+    end
   end
 end

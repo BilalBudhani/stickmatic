@@ -1,15 +1,16 @@
 $ ->
-  $('#images-list').on 'click', '.user-image', ->
-    img = $(this).find('img');
-    emptyListItem = $('#sidebar .panel-body .product-preview li.empty').first()
-    emptyListItem.html(img.clone());
-    emptyListItem.removeClass('empty').addClass('filled');
+  $('#images-list').on 'click', 'li img', ->
+    img = $(this)
+    emptyListItem = $('#sidebar li.empty').first()
+    emptyListItem.html(img.clone())
+    emptyListItem.removeClass('empty')
 
-
-    form_field = $("#js_instagram-preview-field .js_product_field" ).clone();
-    form_field.find('.js_instagramid').val(img.data('instagramid'))
-    form_field.find('.js_instagram_thumbnail_url').val(img.data('thumburl'))
-    $(form_field).appendTo(emptyListItem);
+    template_form = $(".pack-item-template:first")
+    clone_form = template_form.clone()
+    clone_form.find('input[name="pack[pack_items_attributes][][uid]"]').attr('value', img.data('uid'))
+    clone_form.find('input[name="pack[pack_items_attributes][][thumb]"]').attr('value', img.data('thumb'))
+    clone_form.find('input[name="pack[pack_items_attributes][][image]"]').attr('value', img.data('image'))
+    clone_form.appendTo(emptyListItem);
 
     return false;
 
