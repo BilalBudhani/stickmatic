@@ -32,7 +32,7 @@ describe PacksController do
 
     describe "edit" do
       let!(:other_pack) { FactoryGirl.create(:pack) } # Different user's pack
-      let!(:pack)  { FactoryGirl.create(:pack, user: subject.current_user) } # Current user's pack
+      let!(:pack)  { FactoryGirl.create(:pack_with_items, user: subject.current_user) } # Current user's pack
 
       it "should be able to view other's packs" do
         get :edit, id: other_pack.id
@@ -42,6 +42,13 @@ describe PacksController do
       it "should be able to view pack" do
         get :edit, id: pack.id
         expect(response).to be_success
+      end
+
+      it "should able to update pack" do
+        ## FIXME: Need to test nested attributes here
+        new_pack = FactoryGirl.attributes_for(:pack_with_items, user: subject.current_user)
+        patch :update, { id: pack.id, pack: new_pack}
+        expect(response).to redirect_to basket_path
       end
     end
   end

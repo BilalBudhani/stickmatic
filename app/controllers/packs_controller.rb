@@ -9,8 +9,7 @@ class PacksController < ApplicationController
   def create
     @pack = current_user.packs.new(pack_params)
     if @pack.save!
-      flash[:success] = "Product added to cart"
-      redirect_to basket_path
+      redirect_to basket_path, success: "Pack added to cart"
     else
       redirect_to new_pack_path
     end
@@ -26,11 +25,16 @@ class PacksController < ApplicationController
   end
 
   def update
-    @product = Product.find(params[:id])
-    if @product.update_attributes!(product_params)
-      flash[:success] = "Product updated"
+    begin
+      @pack = current_user.packs.find(params[:id])
+      if @pack.update_attributes!(pack_params)
+        redirect_to basket_path, success: 'Pack Updated'
+      else
+        redirect_to edit_pack_path, error: "Problem updating pack"
+      end
+    rescue ActiveRecord::RecordNotFound
+      redirect_to new_pack_path
     end
-    redirect_to edit_product_path
   end
 
   private

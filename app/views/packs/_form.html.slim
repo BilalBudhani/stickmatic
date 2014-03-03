@@ -12,7 +12,8 @@
                 .pack-item-form.hidden
                   = pack_item.text_field :uid
                   = pack_item.text_field :image
-                img src="#{pack_item.thumb}" data={thumb: "#{pack_item.thumb}", uid: "#{pack_item.uid}"}
+                  = pack_item.text_field :thumb
+                img src="#{pack_item.object.thumb}" data={thumb: "#{pack_item.object.thumb}", uid: "#{pack_item.object.uid}", image: "#{pack_item.object.image}" }
     .panel-footer
       = button_tag type: 'submit', class: "btn btn-primary btn-lg center"
         = fa_icon 'plus'
