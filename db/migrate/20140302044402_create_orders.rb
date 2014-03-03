@@ -6,7 +6,7 @@ class CreateOrders < ActiveRecord::Migration
       t.integer :total_price
       t.string :status
       t.string :remark
-      t.boolean :paid
+      t.boolean :paid, default: false
 
       t.timestamps
     end

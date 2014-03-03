@@ -4,5 +4,6 @@ FactoryGirl.define do
   factory :ordered_pack do
     order nil
     pack nil
+    qty 1
   end
 end

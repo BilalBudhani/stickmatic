@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :order do
-    user nil
+    user { FactoryGirl.create(:user) }
     qty 1
     total_price 1
     status "MyString"
