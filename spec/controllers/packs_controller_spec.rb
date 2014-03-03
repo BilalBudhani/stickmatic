@@ -10,6 +10,7 @@ describe PacksController do
 
   describe "when user is logged in" do
     login_user
+
     it "should be able to access new" do
       get :new
       expect(response).to be_success
@@ -28,6 +29,7 @@ describe PacksController do
         expect { post :create, params }.to change(Pack, :count).by(1)
       }.should change(PackItem, :count).by(2)
       expect(response).to redirect_to basket_path
+      expect(subject.current_user.orders.count).to eq 1
     end
 
     describe "edit" do
