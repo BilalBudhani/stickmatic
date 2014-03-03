@@ -9,8 +9,7 @@ class PacksController < ApplicationController
   def create
     @pack = current_user.packs.new(pack_params)
     if @pack.save!
-      order.add(@pack)
-      order.save
+      Order.add(@pack)
       redirect_to basket_path, success: "Pack added to cart"
     else
       redirect_to new_pack_path

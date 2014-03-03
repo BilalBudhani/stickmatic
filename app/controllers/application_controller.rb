@@ -8,8 +8,4 @@ class ApplicationController < ActionController::Base
   def instagram_client
     @client ||= Instagram.client(access_token: current_user[:token])
   end
-
-  def order
-    current_user.orders.where(paid: false).first_or_initialize
-  end
 end

@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :ordered_pack do
-    order nil
-    pack nil
+    pack { FactoryGirl.create(:pack_with_items) }
+    order { FactoryGirl.create(:order, user: pack.user) }
     qty 1
   end
 end

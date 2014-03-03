@@ -4,5 +4,5 @@ Stickmatic::Application.routes.draw do
   resources :packs
 
   root 'home#index'
-  get '/basket' , to: "order#index", as: 'basket'
+  get '/basket' , to: "orders#index", as: 'basket'
 end

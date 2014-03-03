@@ -29,7 +29,7 @@ describe PacksController do
         expect { post :create, params }.to change(Pack, :count).by(1)
       }.should change(PackItem, :count).by(2)
       expect(response).to redirect_to basket_path
-      expect(subject.current_user.orders.count).to eq 1
+      expect(subject.current_user.orders.first.reload.ordered_packs.count).to eq 1
     end
 
     describe "edit" do
