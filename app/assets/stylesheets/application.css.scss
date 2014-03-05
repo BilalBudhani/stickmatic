@@ -62,10 +62,16 @@ ul#images-list {
   margin-right: 0;
 }
 
+.pack-preview {
+  font-size: 0;
+  width: 225px;
+  padding: 0;
+}
+
 .pack-preview li {
   box-sizing: border-box;
-  float: left;
-  margin: 0 0 1.3624% 1.3624%;
+  display: inline-block;
+  margin: 0 0 1px 1px;
   position: relative;
   background-color: #333;
   border: 1px solid #313131;
@@ -93,10 +99,7 @@ div.left-basket-preview {
 }
 
 ul.basket-pack-preview {
-  width: 50%;
-  margin-bottom: 30px;
-  padding-bottom: 30px;
-  overflow: hidden;
+  padding: 0;
 }
 
 img.small {
