@@ -5,12 +5,12 @@ describe Coupon do
 		expect(FactoryGirl.create(:coupon)).to be_valid
 	end
 
-  it "should have coupon code" do 
+  it "should have coupon code" do
     expect(FactoryGirl.build(:coupon,code: nil)).to be_invalid
   end
 
 
-  it "should have amount or percent" do 
+  it "should have amount or percent" do
     expect(FactoryGirl.build(:coupon,amount: nil,percent: nil)).to be_invalid
   end
 end

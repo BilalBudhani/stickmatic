@@ -15,7 +15,7 @@ nav.navbar.navbar-default[role="navigation"]
       ul.nav.navbar-nav.navbar-right
         - if current_user
           li
-            = link_to "Basket #{@cart.total_unique_items} Items" , basket_path
+            = link_to "Basket 0 Items" , basket_path
           li
             a.dropdown-toggle[href="#" data-toggle="dropdown"]
               |Hi #{current_user.name}

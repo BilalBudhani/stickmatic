@@ -1,0 +1,24 @@
+= form_for @pack, html: {class: "packs"}  do |f|
+  .panel.panel-default
+    .panel-heading Your sheet
+    .panel-body
+      ul.packs-preview
+        = f.fields_for :pack_items do |pack_item|
+          - if pack_item.object.new_record?
+              li.empty
+                = fa_icon "picture-o lg"
+          - else
+              li
+                .pack-item-form.hidden
+                  = pack_item.text_field :uid
+                  = pack_item.text_field :image
+                  = pack_item.text_field :thumb
+                img src="#{pack_item.object.thumb}" data={thumb: "#{pack_item.object.thumb}", uid: "#{pack_item.object.uid}", image: "#{pack_item.object.image}" }
+    .panel-footer
+      = button_tag type: 'submit', class: "btn btn-primary btn-lg center"
+        = fa_icon 'plus'
+        = @pack.new_record? ? ' Add ' : ' Update '
+        | Pack to Basket
+
+= render "packs/pack_item_attribute"
+

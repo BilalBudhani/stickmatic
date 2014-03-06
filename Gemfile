@@ -20,8 +20,6 @@ gem "faraday", "~> 0.8.9"
 gem "foreman", "~> 0.63.0"
 gem "font-awesome-rails"
 
-gem 'acts_as_shopping_cart', '~> 0.2.0'
-
 group :development do
   gem "better_errors", "~> 1.0.1"
   gem "binding_of_caller", "~> 0.7.2"
@@ -37,6 +35,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'rb-fsevent' if `uname` =~ /Darwin/
+  gem 'railroady'
 end
 
 group :test do

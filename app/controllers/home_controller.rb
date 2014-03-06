@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
-  before_filter :authenticate_user!, only: [:select]
+  skip_before_filter :authenticate_user!
 
   def index
-    redirect_to new_product_path if current_user
+    redirect_to new_pack_path if current_user
   end
 end
