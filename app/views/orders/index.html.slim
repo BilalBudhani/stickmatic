@@ -1,18 +1,15 @@
-.container-fluid
+.container
   = render 'layouts/wizard'
   .row
     .col-md-5.col-md-offset-1
-      - @order.packs.each do |pack|
-        .row
-          .col-md-6
-            ul.basket-pack-preview
-              li
-                = link_to edit_pack_path(pack) do
-                  ul.pack-preview
-                    - pack.pack_items.each do |pack_item|
-                        li
-                          img.small src="#{pack_item.thumb}"
-          .col-md-6
+      ul.basket-pack-preview
+        - @order.packs.each do |pack|
+          li
+            = link_to edit_pack_path(pack) do
+              ul.pack-preview
+                - pack.pack_items.each do |pack_item|
+                    li
+                      img.small src="#{pack_item.thumb}"
             ul.action-list
               li
                 = form_for pack.ordered_pack, url: order_path(@order.id) , method: :put do |f|
