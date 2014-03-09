@@ -3,6 +3,8 @@ class Order < ActiveRecord::Base
   has_many :ordered_packs
   has_many :packs, through: :ordered_packs
 
+  accepts_nested_attributes_for :ordered_packs
+
   after_save :perform_calc
 
   def self.add(pack)
