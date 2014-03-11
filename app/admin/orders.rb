@@ -1,6 +1,10 @@
 ActiveAdmin.register Order do
   permit_params :user_id, :total_price, :status,:remark,:paid,:ordered_packs_attributes=>[:pack_id, :qty,:total_price]
 
+  config.clear_action_items!
+
+  actions :all, :except => [:new,:destroy]
+
   controller do
     def new
       new!
