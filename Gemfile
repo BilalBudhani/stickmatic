@@ -21,7 +21,6 @@ gem "foreman", "~> 0.63.0"
 gem "font-awesome-rails"
 
 gem 'activeadmin', github: 'gregbell/active_admin'
-gem 'chosen-rails'
 gem 'cancan'
 
 group :development do

@@ -1,5 +1,5 @@
 ActiveAdmin.register Order do
-  permit_params :user_id, :total_price, :status,:remark,:paid,,:ordered_packs_attributes=>[:pack_id, :qty,:total_price]
+  permit_params :user_id, :total_price, :status,:remark,:paid,:ordered_packs_attributes=>[:pack_id, :qty,:total_price]
 
   controller do
     def new
