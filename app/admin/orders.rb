@@ -1,5 +1,7 @@
 ActiveAdmin.register Order do
-  permit_params :user_id, :total_price, :status,:remark,:paid,:ordered_packs_attributes=>[:pack_id, :qty,:total_price]
+
+  permit_params :user_id, :total_price, :status, :remark, :paid, 
+                ordered_packs_attributes: [:pack_id, :qty, :total_price]
 
   config.clear_action_items!
 
@@ -11,6 +13,10 @@ ActiveAdmin.register Order do
       @order.ordered_packs.build 
     end 
   end
+
+  filter :paid
+  filter :created_at
+  filter :total_price
 
 
   form do |f|
