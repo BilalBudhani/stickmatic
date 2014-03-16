@@ -7,4 +7,7 @@ class HomeController < ApplicationController
 
   def tos
   end
+
+  def privacy
+  end
 end
