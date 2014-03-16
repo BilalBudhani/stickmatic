@@ -4,4 +4,7 @@ class HomeController < ApplicationController
   def index
     redirect_to new_pack_path if current_user
   end
+
+  def tos
+  end
 end
