@@ -10,9 +10,11 @@ html
         | #{content_for(:title)} Stickmatic
       - else
         | Stickmatic
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "landing_page", media: "all", "data-turbolinks-track" => true
     = csrf_meta_tags
   body
-    = render 'layouts/navbar'
-    = yield
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    div class="page-wrapper"
+      = render 'layouts/navbar'
+      = yield
+      = render 'layouts/footer'
+  = javascript_include_tag "landing_page", "data-turbolinks-track" => true

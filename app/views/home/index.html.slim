@@ -1,6 +1,17 @@
-.container
-  .jumbotron
-    h1 Stickmatic
-    p Turn your instagram pictures into magnets.
-    p
-      a.btn.btn-lg.btn-primary [data-no-turbolink="" href="#{user_omniauth_authorize_path(:instagram)}" role="button"] Login via Instagram
+/ content-13
+section.content-13.subscribe-form.bg-turquoise
+  .container
+    .row
+      form
+        .col-sm-8
+          input placeholder=("Enter your e-mail") spellcheck="false" type="text"
+        .col-sm-4
+          button.btn.btn-large.btn-primary type="submit"
+            | Subscribe now
+
+/ .container
+/   .jumbotron
+/     h1 Stickmatic
+/     p Turn your instagram pictures into magnets.
+/     p
+/       a.btn.btn-lg.btn-primary [data-no-turbolink="" href="#{user_omniauth_authorize_path(:instagram)}" role="button"] Login via Instagram
