@@ -4,29 +4,20 @@ header.header-11
       .navbar.col-sm-12[role="navigation"]
         .navbar-header
           button.navbar-toggle[type="button"]
-          a.brand[href="#"]
+          a.brand[href="#{root_url}"]
             img[src="#{asset_path 'logo.png'}" width="50" height="50" alt=""]
             |  Stickmatic
         .collapse.navbar-collapse.pull-right
           ul.nav.pull-left
             li.active
-              a[href="#"]
+              a[href="#{root_url}"]
                 | HOME
             li
-              a[href="#"]
-                | COMPANY
-            li
-              a[href="#"]
-                | PORTFOLIO
-            li
-              a[href="#"]
-                | BLOG
-            li
-              a[href="#"]
+              a[href="/contact"]
                 | CONTACT
           form.navbar-form.pull-left
-            a.btn.btn-primary[href="#"]
-              | SIGN IN
+            a.btn.btn-primary[href="#{user_omniauth_authorize_path(:instagram)}" data-no-turbolink=""]
+              | LOG IN
 section.header-11-sub.bg-midnight-blue
   .background
     |   
@@ -34,28 +25,17 @@ section.header-11-sub.bg-midnight-blue
     .row
       .col-sm-4
         h3
-          | Features of Startup Framework
+          | Bring your Instagram pictures to life
         p
-          |  You have the design, you have the code. We’ve created the product that will help your startup to look even better.
+          |  Create beautiful magnets and relive those moments.
         .signup-form
-          form
-            .form-group
-              input.form-control[type="text" placeholder="Your E-mail"]
-            .form-group
-              div
-                input.form-control[type="password" placeholder="Password"]
-              div
-                input.form-control[type="password" placeholder="Confirmation"]
-            .form-group
-              button.btn.btn-block.btn-info[type="submit"]
-                | Sign Up
+          a.btn.btn-block.btn-info[href="#{user_omniauth_authorize_path(:instagram)}" type="button" data-no-turbolink=""] Login via Instagram
         .additional-links
-          |  By signing up you agree to
-          a[href="#"]
+          | By signing up you agree to&nbsp;
+          a[href="#{tos_path}"]
             | Terms of Use
-          |  and
-          a[href="#"]
+          |  and&nbsp;
+          a[href="#{privacy_path}"]
             | Privacy Policy
       .col-sm-7.col-sm-offset-1.player-wrapper
         .player
-          iframe[src="http://player.vimeo.com/video/29568236?color=3498db" webkitallowfullscreen mozallowfullscreen allowfullscreen]

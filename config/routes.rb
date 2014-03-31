@@ -6,7 +6,7 @@ Stickmatic::Application.routes.draw do
   resources :packs
   resource :order, only: [:update]
   root 'home#index'
-  get '/tos', to: 'home#tos'
-  get '/privacy', to: 'home#privacy'
+  get '/tos', to: 'home#tos', as: 'tos'
+  get '/privacy', to: 'home#privacy', as: 'privacy'
   get '/basket' , to: "orders#index", as: 'basket'
 end
