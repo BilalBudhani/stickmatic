@@ -19,6 +19,7 @@ gem 'faraday', '~> 0.8.9'
 gem 'foreman', '~> 0.63.0'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'cancan', '~> 1.6.10'
+gem 'font-awesome-rails', '~> 4.0.3.1'
 
 group :development do
   gem 'better_errors', '~> 1.0.1'
