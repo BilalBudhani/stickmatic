@@ -4,7 +4,8 @@ describe Order do
   it { should belong_to(:user) }
   it { should have_many(:ordered_packs) }
   it { should have_many(:packs) }
-
+  it { should have_many(:addresses) }
+  
   # it {should validate_presence_of(:qty) }
   # it {should validate_presence_of(:total_price) }
   # it {should validate_presence_of(:paid) }
