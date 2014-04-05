@@ -47,8 +47,4 @@ class PacksController < ApplicationController
   def pack_items_length
     9
   end
-
-  def fetch_order
-    @order = Order.unpaid(current_user).first
-  end
 end
