@@ -28,6 +28,7 @@ group :development do
   gem 'capistrano', '~> 3.1.0'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rvm'
+  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
 end
 
 group :development, :test do
