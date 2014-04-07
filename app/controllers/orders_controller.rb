@@ -1,5 +1,10 @@
 class OrdersController < ApplicationController
+  before_filter :fetch_order
+
   def index
-    @order = Order.unpaid(current_user).first
+  end
+
+  def details
+    @address = @order.addresses.build
   end
 end

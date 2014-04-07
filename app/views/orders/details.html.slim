@@ -1,0 +1,24 @@
+.container
+  = render 'layouts/wizard'
+  .row
+    .col-xs-6
+      = form_for @address, url: details_order_path, html: {role: 'form'} do
+        .form-group
+          = label_tag :add1
+          = text_field_tag(:add1, nil, class: 'form-control', placeholder: 'Address line 1')
+        .form-group
+          = label_tag :add2
+          = text_field_tag(:add2, nil, class: 'form-control', placeholder: 'Address line 2')
+        .form-group
+          = label_tag :city
+          = text_field_tag(:city, nil, class: 'form-control', placeholder: 'City')
+        .form-group
+          = label_tag :state
+          = text_field_tag(:state, nil, class: 'form-control', placeholder: 'State')
+        .form-group
+          = label_tag :zipcode
+          = text_field_tag(:zipcode, nil, class: 'form-control', placeholder: 'Pincode')
+        .form-group
+          = label_tag :landmark
+          = text_field_tag(:landmark, nil, class: 'form-control', placeholder: 'Landmark')
+        button.btn.btn-default[type="submit"] Save
