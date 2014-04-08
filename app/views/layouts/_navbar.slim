@@ -19,7 +19,7 @@ nav.navbar.navbar-default[role="navigation"]
       ul.nav.navbar-nav.navbar-right
         - if current_user
           li
-            = link_to "Basket #{@order.packs_count} Items" , basket_path
+            = link_to "Basket #{@order.nil? ? 0 : @order.packs_count} Items" , basket_path
           li
             a.dropdown-toggle[href="#" data-toggle="dropdown"]
               |Hi #{current_user.name}

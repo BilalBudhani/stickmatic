@@ -29,6 +29,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rvm'
   gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+  gem 'hipchat', '~> 1.1.0'
 end
 
 group :development, :test do

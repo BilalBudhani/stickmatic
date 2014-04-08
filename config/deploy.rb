@@ -31,6 +31,10 @@ set :bundle_path, -> { shared_path.join('bundle') }
 set :bundle_flags, '--deployment'
 set :bundle_without, %w{development test}.join(' ')
 
+## Hipchat inform
+set :hipchat_token, Settings.HIPCHAT.AUTH_TOKEN
+set :hipchat_room_name, "development"
+
 namespace :deploy do
 
   desc 'Restart application'
