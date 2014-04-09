@@ -7,7 +7,7 @@ FactoryGirl.define do
     city "Mumbai"
     state "State"
     zipcode "400003"
-    mobile "123456789"
+    mobile "1234567890"
     landmark "Nearby"
     order
   end
