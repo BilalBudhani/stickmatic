@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.1'
 
-gem 'rails', '4.0.3'
+gem 'rails', '4.1.0'
 gem 'pg', '~> 0.17.1'
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.1.0'
@@ -20,6 +20,7 @@ gem 'foreman', '~> 0.63.0'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'cancan', '~> 1.6.10'
 gem 'font-awesome-rails', '~> 4.0.3.1'
+gem 'polyamorous', github: 'activerecord-hackery/polyamorous' # MetaSearch 1.1.x, Ransack, and Squeel
 
 group :development do
   gem 'better_errors', '~> 1.0.1'
