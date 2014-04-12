@@ -25,4 +25,4 @@
     .col-xs-5.col-md-offset-1
       h2 Sheets #{fa_icon "inr"}#{@order.total_price}
       h2 Shipping Free
-      a.btn.btn-primary [href="#{details_order_path}" type="button"] Proceed
+      a.btn.btn-primary [href="#{new_order_address_path(@order)}" type="button"] Proceed
