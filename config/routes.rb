@@ -4,8 +4,9 @@ Stickmatic::Application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :packs
-  resources :order, only: [:update] do
-    resources :addresses
+  resources :orders, only: [:update] do
+    get :success
+    resources :addresses, only: [:new, :create]
   end
 
   root 'home#index'

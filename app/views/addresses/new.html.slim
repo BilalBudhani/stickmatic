@@ -1,5 +1,8 @@
 .container
   = render 'layouts/wizard'
+  - if @address.errors.any?
+    - @address.errors.full_messages.each do |msg|
+      .alert.alert-danger #{msg}
   .row
     .col-xs-6
       = form_for [@order, @address], html: {role: 'form'} do |f|
@@ -21,4 +24,7 @@
         .form-group
           = f.label :landmark
           = f.text_field(:landmark, class: 'form-control', placeholder: 'Landmark')
+        .form-group
+          = f.label :mobile
+          = f.text_field(:mobile, class: 'form-control', placeholder: 'Mobile number')
         button.btn.btn-default[type="submit"] Save
