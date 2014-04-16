@@ -1,7 +1,7 @@
 .container
   = render 'layouts/wizard'
   .row
-    .col-md-5.col-md-offset-1
+    .col-xs-5.col-md-offset-1
       ul.basket-pack-preview
         - @order.packs.each do |pack|
           li
@@ -22,7 +22,7 @@
               li
                 = link_to 'Create More' , new_pack_path,  class: 'btn btn-warning btn-block'
 
-    .col-md-5.col-md-offset-1
+    .col-xs-5.col-md-offset-1
       h2 Sheets #{fa_icon "inr"}#{@order.total_price}
       h2 Shipping Free
-      button.btn.btn-primary [type="button"] Proceed
+      a.btn.btn-primary [href="#{new_order_address_path(@order)}" type="button"] Proceed

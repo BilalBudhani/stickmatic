@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.1'
 
-gem 'rails', '4.0.3'
+gem 'rails', '4.1.0'
 gem 'pg', '~> 0.17.1'
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.1.0'
@@ -19,11 +19,18 @@ gem 'faraday', '~> 0.8.9'
 gem 'foreman', '~> 0.63.0'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'cancan', '~> 1.6.10'
+gem 'font-awesome-rails', '~> 4.0.3.1'
+gem 'polyamorous', github: 'activerecord-hackery/polyamorous' # MetaSearch 1.1.x, Ransack, and Squeel
 
 group :development do
   gem 'better_errors', '~> 1.0.1'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'meta_request', '~> 0.2.8'
+  gem 'capistrano', '~> 3.1.0'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-rvm'
+  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+  gem 'hipchat', '~> 1.1.0'
 end
 
 group :development, :test do
@@ -33,7 +40,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'guard-rspec'
-  gem 'rb-fsevent' if `uname` =~ /Darwin/
+  gem 'rb-fsevent'
   gem 'railroady'
 end
 

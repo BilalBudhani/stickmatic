@@ -1,5 +1,15 @@
 class OrdersController < ApplicationController
+  before_filter :fetch_order
+
   def index
-    @order = Order.find_by(user: current_user, paid: false)
+    redirect_to new_pack_path unless @order
+  end
+
+  def success
+  end
+
+  private
+  def address_params
+    params.require(:address).permit(:add1, :add2, :city, :state, :zipcode, :landmark, :email)
   end
 end

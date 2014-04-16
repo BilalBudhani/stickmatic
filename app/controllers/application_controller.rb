@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   def instagram_client
     @client ||= Instagram.client(access_token: current_user[:token])
   end
+
+  def fetch_order
+    @order = Order.unpaid(current_user).first
+  end
 end
