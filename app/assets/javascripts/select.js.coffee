@@ -13,5 +13,3 @@ $ ->
     clone_form.appendTo(emptyListItem);
 
     return false;
-
-

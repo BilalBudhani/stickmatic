@@ -1,10 +1,10 @@
 .container
   = render 'layouts/wizard'
   .row
-    .col-xs-12.col-md-6
+    .col-sm-6
       ul#images-list
         - for media_item in @client.user_recent_media
           li
             img src="#{media_item.images.thumbnail.url}" data={thumb: "#{media_item.images.thumbnail.url}", uid: "#{media_item.id}", image: "#{media_item.images.standard_resolution.url}"}
-    .col-xs-12.col-md-6#sidebar
+    .col-sm-6#sidebar
       = render  "packs/form"

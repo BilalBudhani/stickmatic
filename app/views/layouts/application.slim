@@ -14,7 +14,7 @@ html
     = csrf_meta_tags
   body
     div class="page-wrapper"
-      = render 'layouts/navbar'
+      = render 'layouts/navbar_shallow'
       = yield
       = render 'layouts/footer'
   = javascript_include_tag "landing_page", "data-turbolinks-track" => true

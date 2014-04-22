@@ -3,3 +3,4 @@
 //= require bootstrap.min
 //= require modernizr.custom
 //= require startup-kit
+//= require select

@@ -15,12 +15,15 @@ header.header-11
             li
               a[href="/contact"]
                 | CONTACT
-          form.navbar-form.pull-left
-            a.btn.btn-primary[href="#{user_omniauth_authorize_path(:instagram)}" data-no-turbolink=""]
-              | LOG IN
-section.header-11-sub.bg-midnight-blue
-  .background
-    |   
-  .container
-    .row
-      .col-sm-11.col-sm-offset-1[style="min-height:360px;"]
+            - if current_user
+              li
+                a.dropdown-toggle[href="#" data-toggle="dropdown"]
+                  |Hi #{current_user.name}
+                  b.caret
+                ul.dropdown-menu
+                  li
+                    = link_to "Logout", destroy_user_session_path, method: :delete
+            - else
+              form.navbar-form.pull-left
+                a.btn.btn-primary[href="#{user_omniauth_authorize_path(:instagram)}" data-no-turbolink=""]
+                  | LOG IN
