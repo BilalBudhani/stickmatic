@@ -3,4 +3,18 @@
     h1 Stickmatic
     p Turn your instagram pictures into magnets.
     p
-      a.btn.btn-lg.btn-primary [data-no-turbolink="" href="#{user_omniauth_authorize_path(:instagram)}" role="button"] Login via Instagram
+      a.btn.btn-lg.btn-primary [data-no-turbolink="" href="#{user_omniauth_authorize_path(:instagram)}" role="button"]
+        = fa_icon "instagram"
+        |  Login via Instagram
+  .row
+    .col-sm-8
+      img src="http://placehold.it/700x200" class="img-responsive" alt="Photo magnets"
+    .col-sm-4
+      h4 Photo Magnet
+      p Get 9 classic magnet with your photo on it.
+      p
+        span [style="font-size: 24px;"]
+          = fa_icon "rupee"
+          |  899.00
+      p
+        a.btn.btn-lg.btn-success [data-no-turbolink="" href="#{user_omniauth_authorize_path(:instagram)}" role="button"] Create yours
