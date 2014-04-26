@@ -9,13 +9,10 @@ header.header-11
             |  Stickmatic
         .collapse.navbar-collapse.pull-right
           ul.nav.pull-left
-            li.active
-              a[href="#{root_url}"]
-                | HOME
-            li
-              a[href="/contact"]
-                | CONTACT
             - if current_user
+              -if @order
+                li
+                  a href="#{basket_path}" #{@order.packs_count} #{fa_icon 'shopping-cart'}
               li
                 a.dropdown-toggle[href="#" data-toggle="dropdown"]
                   |Hi #{current_user.name}
@@ -24,6 +21,12 @@ header.header-11
                   li
                     = link_to "Logout", destroy_user_session_path, method: :delete
             - else
+              li.active
+                a[href="#{root_url}"]
+                  | HOME
+              li
+                a[href="/contact"]
+                  | CONTACT
               form.navbar-form.pull-left
                 a.btn.btn-primary[href="#{user_omniauth_authorize_path(:instagram)}" data-no-turbolink=""]
                   | LOG IN

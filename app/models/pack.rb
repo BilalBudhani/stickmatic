@@ -11,6 +11,6 @@ class Pack < ActiveRecord::Base
 
   private
   def add_price
-    self.price = 100
+    self.price = 799
   end
 end

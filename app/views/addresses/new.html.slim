@@ -1,5 +1,4 @@
 .container
-  = render 'layouts/wizard'
   - if @address.errors.any?
     - @address.errors.full_messages.each do |msg|
       .alert.alert-danger #{msg}

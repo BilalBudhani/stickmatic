@@ -1,4 +1,26 @@
-/ content-13
+= render 'layouts/navbar'
+section.price-1
+  .container
+    .row
+      h3 Products
+      p.lead We've the plans for you
+      .row.plans
+        .col-sm-4
+        .col-sm-4
+          .plan
+            .title Photo Magnets
+            .price
+              = fa_icon "rupee"
+              |  799
+            .description
+              | 1 sheet (9 Magnets)
+              br
+              strong Free
+              |  Home delivery
+            a.btn.btn-primary [href="#"] Create Yours
+            .ribbon New
+        .col-sm-4
+
 section.content-13.subscribe-form.bg-turquoise
   .container
     .row
@@ -8,10 +30,3 @@ section.content-13.subscribe-form.bg-turquoise
         .col-sm-4
           button.btn.btn-large.btn-primary type="submit"
             | Subscribe now
-
-/ .container
-/   .jumbotron
-/     h1 Stickmatic
-/     p Turn your instagram pictures into magnets.
-/     p
-/       a.btn.btn-lg.btn-primary [data-no-turbolink="" href="#{user_omniauth_authorize_path(:instagram)}" role="button"] Login via Instagram

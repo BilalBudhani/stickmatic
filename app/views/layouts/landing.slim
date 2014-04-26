@@ -5,6 +5,7 @@ html
     meta http-equiv="X-UA-Compatible" content="IE=edge"
     meta[name="viewport" content="width=device-width, initial-scale=1"]
     link rel="shortcut icon" type="image/x-icon" href="#{asset_path 'favicon.ico'}"
+    link [href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css']
     title
       - if content_for :title
         | #{content_for(:title)} Stickmatic
@@ -14,7 +15,6 @@ html
     = csrf_meta_tags
   body
     div class="page-wrapper"
-      = render 'layouts/navbar'
       = yield
       = render 'layouts/footer'
   = javascript_include_tag "landing_page", "data-turbolinks-track" => true
