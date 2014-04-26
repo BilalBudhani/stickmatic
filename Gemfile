@@ -22,6 +22,12 @@ gem 'cancan', '~> 1.6.10'
 gem 'font-awesome-rails', '~> 4.0.3.1'
 gem 'polyamorous', github: 'activerecord-hackery/polyamorous' # MetaSearch 1.1.x, Ransack, and Squeel
 
+#image processing and convertor
+
+gem 'rmagick'
+gem 'prawn'
+
+
 group :development do
   gem 'better_errors', '~> 1.0.1'
   gem 'binding_of_caller', '~> 0.7.2'

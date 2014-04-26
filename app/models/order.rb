@@ -1,3 +1,6 @@
+require "#{Rails.root}/lib/helpers/image_to_pdf"
+
+
 class Order < ActiveRecord::Base
   belongs_to :user
   has_many :ordered_packs
@@ -22,7 +25,25 @@ class Order < ActiveRecord::Base
     order.ordered_packs.count
   end
 
+  def download_pdf!
+
+    # FIXME Change to bg process
+    self.packs.map(&:draw!)
+
+    images = self.packs.map(&:collage_path)
+    ImageToPdf.new.multiple_images(images,tmp_pdf_path)
+    
+    #FIXME PATH
+
+    "/orders/#{self.id}/order.pdf"
+  end
+
   private
+
+  def tmp_pdf_path
+    FileUtils.mkdir_p "#{Rails.root}/public/orders/#{self.id}"
+    "#{Rails.root}/public/orders/#{self.id}/order.pdf"
+  end
 
   def get_current_order(user)
     order = Order.unpaid(user).first
