@@ -1,10 +1,10 @@
 ActiveAdmin.register User do
   config.clear_action_items!
-  
+
 
   actions :all, :except => [:new,:destroy]
 
-  index do 
+  index do
     selectable_column
     id_column
     column :uid
@@ -14,6 +14,20 @@ ActiveAdmin.register User do
     column :credit
     column :created_at
     actions
+  end
+
+  show do |user|
+    attributes_table do
+      User.column_names.each do |col|
+        if col == "image"
+          row "Image" do
+            image_tag(user.image)
+          end
+        else
+          row col.to_sym
+        end
+      end
+    end
   end
 
   filter :email
