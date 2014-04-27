@@ -9,6 +9,7 @@ class Order < ActiveRecord::Base
   after_save :perform_calc
 
   scope :unpaid, ->(user) { where(user: user, paid: false) }
+  scope :paid, ->(user) { where(user: user, paid: true) }
 
   def self.add(pack)
     order = get_current_order(pack.user)
