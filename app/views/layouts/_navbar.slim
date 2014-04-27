@@ -32,4 +32,4 @@ nav.navbar.navbar-default[role="navigation"]
                 = link_to "Logout", destroy_user_session_path, method: :delete
         - else
           li
-            a[href="#{user_omniauth_authorize_path(:instagram)}"] Login
+            a.popup[href="#{user_omniauth_authorize_path(:instagram)}" data-width="600" data-height="400"] Login

@@ -3,7 +3,7 @@
     h1 Stickmatic
     p Turn your instagram pictures into magnets.
     p
-      a.btn.btn-lg.btn-primary [data-no-turbolink="" href="#{user_omniauth_authorize_path(:instagram)}" role="button"]
+      a.btn.btn-lg.btn-primary.popup [data-no-turbolink="" href="#{user_omniauth_authorize_path(:instagram)}" role="button" data-width="600" data-height="400"]
         = fa_icon "instagram"
         |  Login via Instagram
   .row
@@ -19,4 +19,4 @@
           = fa_icon "rupee"
           |  799.00
       p
-        a.btn.btn-lg.btn-success [data-no-turbolink="" href="#{user_omniauth_authorize_path(:instagram)}" role="button"] Create yours
+        a.btn.btn-lg.btn-success.popup [data-no-turbolink="" href="#{user_omniauth_authorize_path(:instagram)}" role="button" data-width="600" data-height="400"] Create yours
