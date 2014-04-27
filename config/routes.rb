@@ -12,6 +12,7 @@ Stickmatic::Application.routes.draw do
   root 'home#index'
   get '/tos', to: 'home#tos', as: 'tos'
   get '/privacy', to: 'home#privacy', as: 'privacy'
-  get 'contact-us', to: 'home#contact', as: 'contact_us'
+  get '/contact-us', to: 'home#contact', as: 'contact_us'
+  get '/login', to: 'home#login'
   get '/basket' , to: "orders#index", as: 'basket'
 end
