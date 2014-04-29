@@ -17,7 +17,13 @@ ActiveAdmin.register Order do
   member_action :print, :method => :post do
     order = Order.find(params[:id])
 
-    redirect_to order.download_pdf!
+    output_filename = "#{Rails.root}/public/orders/#{order.id}/order_#{order.id}-#{Time.now.to_i}.zip"
+
+    file = order.download_images!(output_filename)
+
+    send_file output_filename, :type => 'application/zip',
+                   :disposition => 'attachment',
+                   :filename => "order_#{order.id}.zip"
   end
 
   actions :all, :except => [:new,:destroy]

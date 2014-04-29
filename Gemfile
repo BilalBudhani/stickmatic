@@ -25,7 +25,8 @@ gem 'polyamorous', github: 'activerecord-hackery/polyamorous' # MetaSearch 1.1.x
 #image processing and convertor
 
 gem 'rmagick'
-gem 'prawn'
+gem 'rubyzip', '>= 1.0.0' # will load new rubyzip version
+
 
 
 group :development do

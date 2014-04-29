@@ -22,7 +22,7 @@ class Pack < ActiveRecord::Base
   end
 
   def collage_path
-    "#{tmp_folder_for_pack}/collage.jpg"
+    "#{tmp_folder_for_pack}/#{self.id}.jpg"
   end
 
 
