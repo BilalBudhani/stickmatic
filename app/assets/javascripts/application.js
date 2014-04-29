@@ -12,9 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require bootstrap
-//= require select
+//= require semantic-ui
 
 
 function popupCenter(url, width, height, name) {

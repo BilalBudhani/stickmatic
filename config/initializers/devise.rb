@@ -10,7 +10,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'support@stickmatic.in'
+  config.mailer_sender = 'hello@stickmatic.in'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -227,7 +227,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :instagram, Settings.INSTAGRAM.APP_ID, Settings.INSTAGRAM.APP_SECRET
+  config.omniauth :instagram, Rails.application.secrets.INSTAGRAM_APP_ID, Rails.application.secrets.INSTAGRAM_APP_SECRET
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

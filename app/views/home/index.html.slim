@@ -1,22 +1,2 @@
-.container
-  .jumbotron
-    h1 Stickmatic
-    p Turn your instagram pictures into magnets.
-    p
-      a.btn.btn-lg.btn-primary.popup [data-no-turbolink="" href="#{user_omniauth_authorize_path(:instagram)}" role="button" data-width="600" data-height="400"]
-        = fa_icon "instagram"
-        |  Login via Instagram
-  .row
-
-  .row
-    .col-sm-8
-      img src="#{asset_path "product.jpg"}" class="img-responsive" alt="Photo magnets"
-    .col-sm-4
-      h4 Photo Magnet
-      p Get 9 classic magnet with your photo on it.
-      p
-        span [style="font-size: 24px;"]
-          = fa_icon "rupee"
-          |  799.00
-      p
-        a.btn.btn-lg.btn-success.popup [data-no-turbolink="" href="#{user_omniauth_authorize_path(:instagram)}" role="button" data-width="600" data-height="400"] Create yours
+section.intro
+  .container
