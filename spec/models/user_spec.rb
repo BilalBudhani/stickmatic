@@ -36,7 +36,7 @@ describe User do
 
     it "should validates record" do
       user = FactoryGirl.create(:user)
-      expect(User.first).to eq(user)
+      expect(User.find(user.id)).to eq(user)
     end
 
     it "should validates created at and updated at" do
@@ -50,20 +50,20 @@ describe User do
     expect(FactoryGirl.create(:user).invite_code).to be_present
   end
 
-  describe "find_for_instagram_oauth" do
+ describe "find_for_oauth" do
     let(:auth_params) { OmniAuth.config.mock_auth[:instagram] }
 
     context "when new user logins via instagram" do
       it "should create new user" do
-        expect { User.find_for_instagram_oauth(auth_params) }.to change(User, :count).by(1)
+        expect { User.find_for_oauth(auth_params) }.to change(User, :count).by(1)
       end
     end
 
     context "when old user logins via instagram" do
-      before(:each) { User.find_for_instagram_oauth(auth_params) }
+      before(:each) { User.find_for_oauth(auth_params) }
 
       it "should not create new user" do
-        expect { User.find_for_instagram_oauth(auth_params) }.to change(User, :count).by(0)
+        expect { User.find_for_oauth(auth_params) }.to change(User, :count).by(0)
       end
     end
   end

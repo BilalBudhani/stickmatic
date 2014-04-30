@@ -229,6 +229,8 @@ Devise.setup do |config|
   # up on your models and hooks.
   config.omniauth :instagram, Settings.INSTAGRAM.APP_ID, Settings.INSTAGRAM.APP_SECRET
 
+  config.omniauth :facebook, Settings.FACEBOOK.APP_ID, Settings.FACEBOOK.APP_SECRET
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

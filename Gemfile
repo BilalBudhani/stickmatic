@@ -14,6 +14,8 @@ gem 'turbolinks', '~> 2.2.1'
 gem 'devise', '~> 3.2.2'
 gem 'instagram', '~> 0.10.0'
 gem 'omniauth-instagram', '~> 1.0.1'
+gem 'omniauth-facebook'
+
 gem 'rails_config', '~> 0.3.3'
 gem 'faraday', '~> 0.8.9'
 gem 'foreman', '~> 0.63.0'
@@ -24,7 +26,8 @@ gem 'polyamorous', github: 'activerecord-hackery/polyamorous' # MetaSearch 1.1.x
 
 #image processing and convertor
 
-gem 'rmagick'
+gem 'rmagick', :require => false
+
 gem 'rubyzip', '>= 1.0.0' # will load new rubyzip version
 
 
@@ -53,6 +56,7 @@ end
 
 group :test do
   gem 'webmock', '~> 1.17.3'
+  gem "minitest"
   gem 'faker', '~> 1.2.0'
   gem 'capybara', '~> 2.2.1'
   gem 'shoulda-matchers', '~> 2.5.0'
