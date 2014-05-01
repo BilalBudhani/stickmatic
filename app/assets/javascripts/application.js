@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require semantic-ui
+//= require semantic-ui/dropdown
 
 
 function popupCenter(url, width, height, name) {
@@ -21,7 +21,7 @@ function popupCenter(url, width, height, name) {
   return window.open(url, name, "menubar=no,toolbar=no,status=no,width="+width+",height="+height+",toolbar=no,left="+left+",top="+top);
 }
 
-$("a.popup").click(function(e) {
+$("a.login-popup").click(function(e) {
   popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
   e.stopPropagation(); return false;
 });

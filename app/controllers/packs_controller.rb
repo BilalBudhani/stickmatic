@@ -1,5 +1,5 @@
 class PacksController < ApplicationController
-  before_filter :instagram_client, only: [:new, :edit]
+  before_filter :facebook_client, only: [:new, :edit]
   before_filter :fetch_order
 
   def new

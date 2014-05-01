@@ -5,4 +5,20 @@ header
         h1.ui.header.brand
           | Stickmatic
       .six.wide.column
-        button.ui.button.hover Login
+        - if current_user
+          .ui.vertical.animated.button.hover
+            .hidden.content Basket
+            .visible.content
+              i.cart.icon
+              | 3
+          .ui.compact.menu.small
+            .ui.simple.dropdown.item
+              = current_user.name
+              i.dropdown.icon
+              .menu
+                .item
+                  a[href="destroy_user_session"] Logout
+        -else
+          a.ui.facebook.small.button.login-popup[href="#{user_omniauth_authorize_path(:facebook)}" data-width="600" data-height="400"]
+            i.facebook.icon
+            | Login via Facebook

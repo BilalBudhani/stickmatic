@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     @client ||= Instagram.client(access_token: current_user[:token])
   end
 
+  def facebook_client
+    @graph ||= Koala::Facebook::API.new(current_user[:token])
+  end
+
   def fetch_order
     @order = Order.unpaid(current_user).first
   end

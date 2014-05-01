@@ -189,6 +189,10 @@ GEM
     kaminari (0.15.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    koala (1.9.0)
+      addressable
+      faraday
+      multi_json
     launchy (2.4.2)
       addressable (~> 2.3)
     listen (2.6.2)
@@ -226,6 +230,8 @@ GEM
     omniauth (1.2.1)
       hashie (>= 1.2, < 3)
       rack (~> 1.0)
+    omniauth-facebook (1.6.0)
+      omniauth-oauth2 (~> 1.1)
     omniauth-instagram (1.0.1)
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.0)
@@ -386,8 +392,10 @@ DEPENDENCIES
   hipchat (~> 1.1.0)
   instagram (~> 0.10.0)
   jquery-rails (~> 3.1.0)
+  koala (~> 1.9.0)
   launchy
   meta_request (~> 0.2.8)
+  omniauth-facebook (~> 1.6.0)
   omniauth-instagram (~> 1.0.1)
   pg (~> 0.17.1)
   polyamorous!

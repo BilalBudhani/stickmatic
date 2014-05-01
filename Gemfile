@@ -12,6 +12,7 @@ gem 'jquery-rails', '~> 3.1.0'
 gem 'devise', '~> 3.2.2'
 gem 'instagram', '~> 0.10.0'
 gem 'omniauth-instagram', '~> 1.0.1'
+gem 'omniauth-facebook', '~> 1.6.0'
 gem 'faraday', '~> 0.8.9'
 gem 'foreman', '~> 0.63.0'
 gem 'activeadmin', github: 'gregbell/active_admin'
@@ -19,6 +20,7 @@ gem 'cancan', '~> 1.6.10'
 gem 'font-awesome-rails', '~> 4.0.3.1'
 gem 'polyamorous', github: 'activerecord-hackery/polyamorous' # MetaSearch 1.1.x, Ransack, and Squeel
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+gem 'koala', '~> 1.9.0'
 
 group :development do
   gem 'better_errors', '~> 1.0.1'
