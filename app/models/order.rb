@@ -42,6 +42,14 @@ class Order < ActiveRecord::Base
 
   end
 
+  def calc_total_price
+    self.ordered_packs.map(&:total_price).inject(:+)
+  end
+
+  def calc_qty
+    self.ordered_packs.map(&:qty).inject(:+)
+  end
+
   private
 
   def tmp_zip_path
@@ -73,11 +81,5 @@ class Order < ActiveRecord::Base
     update_column(:qty, calc_qty)
   end
 
-  def calc_total_price
-    self.ordered_packs.map(&:total_price).inject(:+)
-  end
 
-  def calc_qty
-    self.ordered_packs.map(&:qty).inject(:+)
-  end
 end

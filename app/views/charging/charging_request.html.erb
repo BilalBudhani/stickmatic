@@ -1,0 +1,39 @@
+  <style>
+      #ifr {
+          overflow-y: scroll;
+          overflow-x: scroll;
+          width: 675px;
+      !important;
+          height: 400px !important;
+          border-color: #d9d9d9;
+          border: 1px solid #D6D4D4;
+      }
+      .required {
+          font-weight: bold;
+      }
+  </style>
+<!--Display error when it comes -->
+<%if @request_array["error_message"] == "" %>
+
+    <% if @param["ui_mode"] == "IFRAME" %>
+        <br>q
+        <iframe id="ifr" src="<%= @request_array["url"] %>"></iframe>
+
+    <% elsif  @param["ui_mode"] == "REDIRECT" %>
+        <br>
+
+        <form method="post" action="<%= @request_array["url"] %>" id="charging_request_form">
+          <% @param.each do |key, val| %>
+              <input type="hidden" name="<%= key %>" value="<%= val %>"/>
+          <% end %>
+        </form>
+
+        <script>
+            document.getElementById("charging_request_form").submit();
+        </script>
+    <% end %>
+<% else %>
+    Error Message: <%= @request_array["error_message"] %>
+    <br>
+    <hr>
+<% end %>

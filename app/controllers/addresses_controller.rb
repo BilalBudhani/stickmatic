@@ -7,9 +7,9 @@ class AddressesController < ApplicationController
   end
 
   def create
-    @address = @order.addresses.new address_params
-    if @address.save
-      redirect_to order_success_path
+    @address = @order.addresses.build(address_params)
+    if @order.save
+      redirect_to charging_request_charging_index_path(order_id: @order.id)
     else
       render 'new'
     end
