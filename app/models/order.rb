@@ -19,6 +19,13 @@ class Order < ActiveRecord::Base
     order.save
   end
 
+
+  def self.remove(pack)
+    order = get_current_order(pack.user)
+    order.ordered_packs.destroy(pack_id: pack.id)
+    order.save
+  end
+
   def packs_count
     order = get_current_order(user)
     order.ordered_packs.count

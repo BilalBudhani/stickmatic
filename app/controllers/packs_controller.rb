@@ -39,6 +39,21 @@ class PacksController < ApplicationController
     end
   end
 
+
+  def destroy
+    begin
+      @pack = current_user.packs.find(params[:id])
+      if @pack.destroy
+        Order.remove(@pack)
+        redirect_to basket_path, success: 'Pack deleted'
+      else
+        redirect_to basket_path, error: "Problem deleting pack"
+      end
+    rescue ActiveRecord::RecordNotFound
+      redirect_to new_pack_path
+    end
+  end
+
   private
   def pack_params
     params.require(:pack).permit(:pack_items_attributes=>[:pack_id, :uid,:image,:thumb])
