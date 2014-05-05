@@ -1,8 +1,8 @@
+- steps = {1 => 'Select images', 2 => 'Confirm order', 3 => 'Payment & shipping', 4 => 'Complete'}
+
 section.steps
   .ui.grid
     .sixteen.wide.column
       .ui.four.steps
-        .ui.active.step Select Images
-        .ui.disabled.step Confirm Order
-        .ui.disabled.step Payment &amp; Shipping
-        .ui.disabled.step Complete
+        - steps.each do |key, step|
+          .ui.step [class="#{current_key == key ? 'active' : 'disabled'}"] #{step}

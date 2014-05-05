@@ -26,12 +26,6 @@ body {
   font-family: $normal-font;
 }
 
-body > header, body > footer {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -80,4 +74,18 @@ section.intro {
   border-top: 1px solid #eb412b;
   min-height: 400px;
   color: white;
+}
+
+
+section.pack-selection {
+
+  ul.list {
+    list-style: none;
+  }
+
+  .pack-item {
+    min-width:140px;
+    min-height: 140px;
+    display: inline-block;
+  }
 }

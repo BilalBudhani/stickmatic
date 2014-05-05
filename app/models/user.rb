@@ -39,6 +39,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  def update_data(auth)
+    update_attributes(
+      email: auth.info.email,
+      username: auth.info.nickname,
+      name: auth.info.name,
+      image: auth.info.image,
+      token: auth.credentials.token
+      )
+  end
+
   private
   def set_initial_data
     self.invite_code ||= SecureRandom.hex(8)

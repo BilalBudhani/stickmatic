@@ -4,21 +4,23 @@ header
       .ten.wide.column
         h1.ui.header.brand
           | Stickmatic
-      .six.wide.column
-        - if current_user
-          .ui.vertical.animated.button.hover
+      - if current_user
+        .two.wide.column
+          .ui.animated.button.small
             .hidden.content Basket
             .visible.content
               i.cart.icon
-              | 3
+              = @order.try(:packs_count) || 0
+        .four.wide.column
           .ui.compact.menu.small
             .ui.simple.dropdown.item
               = current_user.name
               i.dropdown.icon
               .menu
                 .item
-                  a[href="destroy_user_session"] Logout
-        -else
+                  a[href="#{destroy_user_session_path}"] Logout
+      - else
+        .six.wide.column
           a.ui.facebook.small.button.login-popup[href="#{user_omniauth_authorize_path(:facebook)}" data-width="600" data-height="400"]
             i.facebook.icon
             | Login via Facebook
