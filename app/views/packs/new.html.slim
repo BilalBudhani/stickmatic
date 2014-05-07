@@ -5,8 +5,7 @@ section.pack-selection
     .ui.grid
       .ten.wide.column
         ul.packs.list
-          - cache do
-            - @graph.fql_query('SELECT pid, src_webp FROM photo WHERE owner = me()').each do |photo|
-              li.pack-item
-                img src="#{photo['src_webp']}"
+          - @graph.fql_query('SELECT pid, src_big_webp FROM photo WHERE owner = me()').each do |photo|
+            li.pack-item
+              img src="#{photo['src_big_webp']}"
       .six.wide.column

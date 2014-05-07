@@ -17,4 +17,6 @@ html
     = render 'layouts/header'
     = yield
     = render 'layouts/footer'
+    - if current_user
+      script[type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"]
     = javascript_include_tag "application"
