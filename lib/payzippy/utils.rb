@@ -8,7 +8,7 @@ module PZ_Utils
 
     hash_params = Hash.new { |hash, key| hash[key] = Array.new }
     hash_params = data
-
+    
     if !hash_params.any?
       return "|"
     end

@@ -5,12 +5,14 @@ require "#{Rails.root}/lib/helpers/collage"
 class Pack < ActiveRecord::Base
   belongs_to :user
   has_many :pack_items
-  has_one :ordered_pack
+  has_one :ordered_pack , dependent: :destroy
   has_one :order, through: :ordered_pack
   accepts_nested_attributes_for :pack_items
   validates_presence_of :user_id
 
   before_validation :add_price
+
+
 
   TMP_PATH = "#{Rails.root}/tmp/images/packs"
 

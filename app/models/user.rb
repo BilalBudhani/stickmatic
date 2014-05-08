@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :orders
   before_create :set_initial_data
 
+  has_many :identities , dependent: :destroy
+
   def self.find_for_instagram_oauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider

@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
   has_many :ordered_packs
   has_many :packs, through: :ordered_packs
   has_many :addresses
-  
+
   accepts_nested_attributes_for :ordered_packs
 
   after_save :perform_calc
@@ -22,7 +22,7 @@ class Order < ActiveRecord::Base
 
   def self.remove(pack)
     order = get_current_order(pack.user)
-    order.ordered_packs.destroy(pack_id: pack.id)
+    order.ordered_packs.where(pack_id: pack.id).destroy_all
     order.save
   end
 

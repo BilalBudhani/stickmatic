@@ -6,8 +6,8 @@ require "#{Rails.root}/lib/payzippy/charging/charging_response.rb"
 
 class ChargingController < ApplicationController
   include PZ_Config
-  include ChargingRequest
   include ChargingResponse
+  # include ChargingRequest
 
    skip_before_filter :verify_authenticity_token, only: [:charging_response]
 
@@ -18,6 +18,9 @@ class ChargingController < ApplicationController
     @response_params = params
     # Incoming data can also be retrieved in the following manner using response_controller.rb or else in views we can display using @response_params array.
     @hash = validate()
+
+
+    logger.info params.inspect
 
 # To check the validity of the response, call the validate function on
 # the ChargingResponse object. It verifies the hash returned in the response.
@@ -48,6 +51,19 @@ class ChargingController < ApplicationController
     @hash_method = get_hash_method
     @hash = get_hash
 
+    order_id = get_merchant_transaction_id.split("ORDER").last
+
+
+
+
+    if(is_transaction_successful)
+            @order = Order.find(order_id)
+            @order.update_attributes!(paid: true)
+        redirect_to root_path, message: "Order Placed"
+    else
+       redirect_to basket_path, message: "Error During Transaction, Contact Support"
+    end
+
   end
 
   def charging_request
@@ -60,9 +76,10 @@ class ChargingController < ApplicationController
     initialize_application_config
     initialize_extra_details
 
+    @params = params
+
     @request_array = charge() #calculate hash, validate fields, assign URL, error_message.
 
-    @params = params
   end
 
 
